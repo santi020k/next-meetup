@@ -1,4 +1,6 @@
+/* eslint-disable global-require */
 module.exports = () => {
+  // eslint-disable-next-line import/no-extraneous-dependencies
   const withLess = require('@zeit/next-less')
   const lessToJS = require('less-vars-to-js')
   const fs = require('fs')
@@ -9,6 +11,7 @@ module.exports = () => {
   )
 
   if (typeof require !== 'undefined') {
+    // eslint-disable-next-line node/no-deprecated-api
     require.extensions['.less'] = file => {}
   }
 
