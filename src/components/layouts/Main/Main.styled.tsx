@@ -4,6 +4,7 @@ import { Layout, Menu } from 'antd'
 
 const MainContainer = styled(Layout)`
   height: 100vh;
+  -webkit-user-select: none;
 `
 
 const Content = styled(Layout.Content)`
@@ -16,6 +17,7 @@ const Content = styled(Layout.Content)`
 const Toggle = styled(Layout.Header)`
   padding-left: 2rem;
   margin: .4rem 0;
+  -webkit-user-select: none;
   & > span {
     font-size: 18px;
     line-height: 64px;
@@ -99,4 +101,17 @@ const MenuContainer = styled(Menu)`
   }
 `
 
-export { MainContainer, Content, Logo, Toggle, MenuContainer, Footer, Header, User, Avatar, Hr, RightHeader, DropdownContent }
+export {
+  MainContainer,
+  Content,
+  Logo,
+  Toggle,
+  MenuContainer,
+  Footer,
+  Header,
+  User,
+  Avatar,
+  Hr,
+  RightHeader,
+  DropdownContent
+}

@@ -26,7 +26,7 @@ const MainLayout = ({ children }: { children: ReactElement }): ReactElement => {
   const [selectedKeys, setSelectedKeys] = useState(['index'])
   const router = useRouter()
 
-  const toggle = (): void => { setIsCollapsed((prevState) => !prevState) }
+  const toggle = (): void => { setIsCollapsed(prevState => !prevState) }
 
   const handleSelectedItem = async (key: string): Promise<void> => {
     setSelectedKeys([key])
@@ -40,20 +40,20 @@ const MainLayout = ({ children }: { children: ReactElement }): ReactElement => {
         <Toggle>
           {isCollapsed ? <MenuUnfoldOutlined onClick={toggle} /> : <MenuFoldOutlined onClick={toggle} />}
         </Toggle>
-        <MenuContainer theme="dark" mode="inline" selectedKeys={selectedKeys} full={'true'}>
-          <Item key="index" icon={<SearchOutlined />} onClick={async () => await handleSelectedItem('index')}>
+        <MenuContainer theme="dark" mode="inline" selectedKeys={selectedKeys} full="true">
+          <Item key="index" icon={<SearchOutlined />} onClick={async () => { await handleSelectedItem('index') }}>
             Search
           </Item>
-          <Item key="Opportunity" icon={<UserOutlined />} onClick={async () => await handleSelectedItem('Opportunity')}>
+          <Item key="Opportunity" icon={<UserOutlined />} onClick={async () => { await handleSelectedItem('gnome') }}>
             Opportunity
           </Item>
-          <Item key="data" icon={<DashboardOutlined />} onClick={async () => await handleSelectedItem('data')}>
+          <Item key="data" icon={<DashboardOutlined />} onClick={async () => { await handleSelectedItem('data') }}>
             Data analysis
           </Item>
         </MenuContainer>
         <Footer>
           <MenuContainer theme="dark" mode="inline" selectedKeys={selectedKeys}>
-            <Item key="config" icon={<SettingOutlined />} onClick={async () => await handleSelectedItem('config')}>
+            <Item key="config" icon={<SettingOutlined />} onClick={async () => { await handleSelectedItem('config') }}>
               Config
             </Item>
           </MenuContainer>
@@ -61,9 +61,7 @@ const MainLayout = ({ children }: { children: ReactElement }): ReactElement => {
       </Sider>
       <Layout>
         <Header>
-          <Logo>
-            <Image src="/img/logo.svg" alt="me" width="64" height="64" />
-          </Logo>
+          <Logo><Image src="/img/logo.svg" alt="me" width="64" height="64" /></Logo>
           <RightHeader>
             <AutoComplete />
             <Hr />
